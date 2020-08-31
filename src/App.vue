@@ -20,14 +20,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ProfilePhotoComponent from '@/components/ProfilePhotoComponent.vue'; // @ is an alias to /src
-import VideoComponent from '@/components/VideoComponent.vue';
-import MaisAssistidosComponent from '@/components/MaisAssistidosComponent.vue';
+
 
 @Component({
   components: {
     ProfilePhotoComponent,
-    VideoComponent,
-    MaisAssistidosComponent
   },
 })
 export default class App extends Vue {

@@ -1,6 +1,4 @@
 <template>
-  <div class="video d-flex justify-content-center">
-    
       <iframe 
           width="560" 
           height="315" 
@@ -9,8 +7,6 @@
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
       </iframe>
-      
-  </div>
 </template>
 
 <script lang="ts">
@@ -24,10 +20,6 @@ export default class VideoComponent extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  video{
-    text-align: center;
-  }
-
   iframe{
     width: 100%;
     height: 600px;
