@@ -26,4 +26,3 @@ export default class RodapeComponent extends Vue {
     }
 </style>
 
-</style>
