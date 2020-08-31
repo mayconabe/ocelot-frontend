@@ -9,13 +9,14 @@
         <b-nav-item right><ProfilePhotoComponent></ProfilePhotoComponent></b-nav-item>
       </b-nav>
     </div>
-    <VideoComponent></VideoComponent>
+
   </span>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ProfilePhotoComponent from '@/components/ProfilePhotoComponent.vue'; // @ is an alias to /src
+
 
 @Component({
   components: {
