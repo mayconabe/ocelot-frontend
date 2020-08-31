@@ -15,7 +15,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class RodapeComponent extends Vue {
-  
+
 }
 </script>
 
@@ -24,4 +24,6 @@ export default class RodapeComponent extends Vue {
     .rodape {
         background-color: #222;
     }
+</style>
+
 </style>
