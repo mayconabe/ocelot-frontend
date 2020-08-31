@@ -1,8 +1,9 @@
 <template>
   <div class="home">
-    <b-row>
+    
       <VideoComponent/>
-    </b-row>
+      <br><br>
+      <MaisAssistidosComponent/>
   </div>
 </template>
 

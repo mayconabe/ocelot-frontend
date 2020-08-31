@@ -1,6 +1,6 @@
 <template>
     <span>
-      <div>
+      <div class="navbar-wrapper">
         <b-navbar-brand href="#" class="float-left">Logo</b-navbar-brand>
         <b-nav align="center">
           <b-nav-item href="#"><router-link to="/">Início</router-link></b-nav-item>
@@ -12,8 +12,8 @@
 
       <!-- Video Area -->
       
-      <VideoComponent></VideoComponent>
-      <MaisAssistidosComponent></MaisAssistidosComponent>
+      <router-view/>
+
     </span>
 </template>
 
@@ -36,8 +36,8 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
-  .navbar-logo {
-    position: absolute;
-    padding-left: 5px;
+  .navbar-wrapper{
+    position: fixed;
+    top: 0;
   }
 </style>
