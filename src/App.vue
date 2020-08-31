@@ -9,7 +9,7 @@
         <b-nav-item right><ProfilePhotoComponent></ProfilePhotoComponent></b-nav-item>
       </b-nav>
     </div>
-
+    <router-view/>
   </span>
 </template>
 
