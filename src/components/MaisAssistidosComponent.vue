@@ -1,29 +1,41 @@
 <template>
   <div class="mais-assistidos">
     <VueSlickCarousel v-bind="settings">
-      <div class="item">1</div>
-      <div class="item">2</div>
-      <div class="item">3</div>
-      <div class="item">4</div>
-      <div class="item">5</div>
-      <div class="item">6</div>
+      <div class="item" v-for="video in videos">
+        <VideoThumbnailComponent
+        :video="video"/>
+      </div>
     </VueSlickCarousel>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import VueSlickCarousel from 'vue-slick-carousel'
-  import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
   // optional style for arrows & dots
   import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
+import VueSlickCarousel from 'vue-slick-carousel'
+
+import VideoThumbnailComponent from "@/components/VideoThumbnailComponent.vue"
+import HomePageStore from '../store/HomePageStore';
+import { getModule } from 'vuex-module-decorators';
+
 
 @Component({
   components:{
     VueSlickCarousel,
+    VideoThumbnailComponent
   }
 })
 export default class MaisAssistidosComponent extends Vue {
+  homePageStore = getModule(HomePageStore, this.$store)
+
+  get videos() {
+    console.log(this.homePageStore.videosEmDestaque)
+    return this.homePageStore.videosEmDestaque
+  }
+
   settings = {
   "dots": true,
   "infinite": false,

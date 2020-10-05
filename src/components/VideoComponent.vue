@@ -2,7 +2,7 @@
       <iframe 
           width="560" 
           height="315" 
-          src="https://www.youtube.com/embed/qmN1Gf8rRc8?controls=0" 
+          :src="video" 
           frameborder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
@@ -11,10 +11,18 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import HomePageStore from '../store/HomePageStore';
+import { getModule } from 'vuex-module-decorators';
+
 
 @Component
 export default class VideoComponent extends Vue {
+  homePageStore = getModule(HomePageStore, this.$store)
   
+  get video(){
+    return this.homePageStore.videoPrincipal.video_url
+    
+  }
 }
 </script>
 

@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import GlobalStore from './GlobalStore'
+import HomePageStore from './HomePageStore'
+import UiStore from './UiStore'
+import VideoPageStore from './VideoPageStore'
+
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+
+export default new Vuex.Store({ 
+    modules:{
+      GlobalStore,
+      UiStore,
+      VideoPageStore,
+      HomePageStore
+    }
+  })

@@ -16,7 +16,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ProfilePhotoComponent from '@/components/ProfilePhotoComponent.vue'; // @ is an alias to /src
-
+import HomePageStore from './store/HomePageStore';
+import GlobalStore from './store/GlobalStore';
+import { getModule } from 'vuex-module-decorators';
 
 @Component({
   components: {
@@ -24,7 +26,12 @@ import ProfilePhotoComponent from '@/components/ProfilePhotoComponent.vue'; // @
   },
 })
 export default class App extends Vue {
-
+  globalStore = getModule(GlobalStore, this.$store)
+  homePageStore = getModule(HomePageStore, this.$store)
+  mounted(){
+    this.globalStore.initPerfil()
+    this.homePageStore.initVideo()
+  }
 }
 </script>
 
