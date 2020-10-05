@@ -1,29 +1,31 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import Perfil from '../models/Perfil'
-import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
-import PerfilService from '@/services/PerfilService'
+import {VuexModule, Mutation, Action, Module} from 'vuex-module-decorators'
+import Perfil from "../models/Perfil"
+import PerfilService from "../services/PerfilService"
 
-Vue.use(Vuex)
+@Module({name: 'GlobalStore', namespaced: true })
+export default class GlobalStore extends VuexModule{
+    //State
+    _perfil = new Perfil(null)
+    _teste = 6
 
-@Module({ name: 'GlobalStore', namespaced: true })
-export default class GlobalStore extends VuexModule {
+    //getters
+    get perfil(){
+        return this._perfil
+    }
 
-  // Estado
-  _perfil = new Perfil(null)
+    get teste(){
+        return this._teste
+    }
 
-  // Getters
-  get perfil() {
-    return this._perfil
-  }
+    //Mutation
+    @Mutation
+    _initPerfil(perfil: Perfil){
+        this._perfil.clone(perfil)        
+    }
 
-  @Mutation
-  _initPerfil(perfil: Perfil) {
-    this._perfil.clone(perfil)
-  }
-
-  @Action({ commit: '_initPerfil' })
-  initPerfil() {
-    return PerfilService.getPerfil() 
-  }
+    //Action
+    @Action({commit: '_initPerfil'})
+    initPerfil(){
+        return PerfilService.getPerfil()
+    }
 }

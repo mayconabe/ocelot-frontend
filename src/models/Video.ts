@@ -18,6 +18,4 @@ export default class Video {
             this.video_poster = "http://localhost:8000" + videoJson.poster_url
         }
     }
-
-
 }

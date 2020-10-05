@@ -16,15 +16,12 @@ import HomePageStore from '../store/HomePageStore'
 
 @Component
 export default class VideoComponent extends Vue {
-  
   homePageStore = getModule(HomePageStore, this.$store)
-
-  get video() {
-    console.log(this.homePageStore.videoPrincipal)
-    return this.homePageStore.videoPrincipal
-  }
   
-
+  get video(){
+    return this.homePageStore.videoPrincipal.video_url
+    
+  }
 }
 </script>
 

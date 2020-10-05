@@ -18,22 +18,21 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { getModule } from 'vuex-module-decorators'
+import { getModule } from 'vuex-module-decorators';
 import GlobalStore from '../store/GlobalStore'
 
 @Component
 export default class ProfilePhotoComponent extends Vue {
 
   globalStore = getModule(GlobalStore, this.$store)
-  
-  get url() {
+
+  get url(){
     return this.globalStore.perfil.url
   }
 
-  get username() {
+  get username(){
     return this.globalStore.perfil.username
   }
-
 }
 </script>
 

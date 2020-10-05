@@ -28,7 +28,5 @@ export default class VideoService {
             videos.push(new Video(data[i]))
         }
         return videos
-
     }
-
 }

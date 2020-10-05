@@ -1,15 +1,12 @@
-import Perfil from '../models/Perfil'
+import Perfil from "../models/Perfil"
 
-export default class PerfilService {
-
+export default class PerfilService{
     static getPerfil() {
-        //Esse método deveria ir no backend
         const perfilJson = {
-            'username': 'Maycon',
-            'url': '/img/logo.82b9c7a5.png'
+            'username': 'marleyabe',
+            'url': 'https://image.flaticon.com/icons/png/512/61/61205.png'
         }
 
         return new Perfil(perfilJson)
     }
-
 }

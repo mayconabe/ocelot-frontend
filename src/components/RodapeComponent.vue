@@ -4,6 +4,7 @@
       <b-nav fill>
         <b-nav-item href="#">Sobre</b-nav-item>
         <b-nav-item>© 2020 Ocelot Academy</b-nav-item>
+        <b-nav-item>Contato</b-nav-item>
         <b-nav-item>{{ teste }}</b-nav-item>
       </b-nav>
     </div>
@@ -24,9 +25,6 @@ export default class RodapeComponent extends Vue {
   get teste() {
     return this.uiStore.teste
   }
-
-  
-
 }
 </script>
 

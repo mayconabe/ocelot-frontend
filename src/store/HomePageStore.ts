@@ -1,36 +1,37 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
-import VideoService from '@/services/VideoService'
-import Video from '@/models/Video'
+import {VuexModule, Mutation, Action, Module} from 'vuex-module-decorators'
+import Video from "../models/Video"
+import VideoService from "../services/VideoService"
 
-Vue.use(Vuex)
+@Module({name: 'HomePageStore', namespaced: true})
+export default class HomePageStore extends VuexModule{
+    //State
 
-@Module({ name: 'HomePageStore', namespaced: true })
-export default class HomePageStore extends VuexModule {
+    _listaDeVideos = new Array<Video>()
 
-    _listaVideos = new Array<Video>() 
+    //Getters
 
-    get videoPrincipal() {
-        if (this._listaVideos.length > 0) {
-            return this._listaVideos[0]
+    get videoPrincipal(){
+        if (this._listaDeVideos.length > 0){
+            return this._listaDeVideos[0]
         } else {
             return new Video(null)
         }
     }
 
-    get videosEmDestaque() {
-        return this._listaVideos.slice(1)
+    get videosEmDestaque(){
+        return this._listaDeVideos.slice(1)
     }
-
+    //Mutation
     @Mutation
-    _initVideos(videos: Array<Video>) {
-      this._listaVideos = videos
-    }
-  
-    @Action({ commit: '_initVideos' })
-    initVideos() {
-      return VideoService.getVideosIndex()
+    _initVideo(videos: Array<Video>){
+        console.log('mutation')
+        this._listaDeVideos = videos
     }
 
+    //Action
+    @Action({commit: '_initVideo'})
+    initVideo() {
+        console.log('action')
+        return VideoService.getVideosIndex()
+    }
 }

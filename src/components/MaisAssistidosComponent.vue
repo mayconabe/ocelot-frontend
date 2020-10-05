@@ -2,8 +2,9 @@
 
   <div class="mais-assistidos">
     <VueSlickCarousel v-bind="settings">
-      <div v-for="video in videos">
-        <ThumbnailComponent :video="video"/>
+      <div class="item" v-for="video in videos">
+        <VideoThumbnailComponent
+        :video="video"/>
       </div>
     </VueSlickCarousel>
   </div>
@@ -14,18 +15,18 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import HomePageStore from '../store/HomePageStore'
 import { getModule } from 'vuex-module-decorators'
 
-
-
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import ThumbnailComponent from '@/components/ThumbnailComponent.vue';
 
+import VueSlickCarousel from 'vue-slick-carousel'
+
 @Component({
   components:{
     VueSlickCarousel,
-    ThumbnailComponent
+    VideoThumbnailComponent
   }
 })
 export default class MaisAssistidosComponent extends Vue {
@@ -36,7 +37,7 @@ export default class MaisAssistidosComponent extends Vue {
     console.log(this.homePageStore.videosEmDestaque)
     return this.homePageStore.videosEmDestaque
   }
-  
+
   settings = {
     "dots": true,
     "infinite": false,
