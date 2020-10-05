@@ -16,6 +16,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ProfilePhotoComponent from '@/components/ProfilePhotoComponent.vue'; // @ is an alias to /src
+import { getModule } from 'vuex-module-decorators'
+import GlobalStore from './store/GlobalStore'
+import HomePageStore from './store/HomePageStore'
 
 
 @Component({
@@ -24,7 +27,14 @@ import ProfilePhotoComponent from '@/components/ProfilePhotoComponent.vue'; // @
   },
 })
 export default class App extends Vue {
+  globalStore = getModule(GlobalStore, this.$store)
+  homePageStore = getModule(HomePageStore, this.$store)
+  
 
+  mounted() {
+    this.globalStore.initPerfil()
+    this.homePageStore.initVideos()
+  }
 }
 </script>
 
@@ -39,11 +49,8 @@ export default class App extends Vue {
     width: 100%;
 
     .navitem-logo {
-      float: right;
-      // position: absolute;
-      // right: 0;
+      position: absolute;
+      right: 0;
     }
   }
-
-  
 </style>

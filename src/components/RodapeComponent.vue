@@ -4,7 +4,7 @@
       <b-nav fill>
         <b-nav-item href="#">Sobre</b-nav-item>
         <b-nav-item>© 2020 Ocelot Academy</b-nav-item>
-        <b-nav-item>Contato</b-nav-item>
+        <b-nav-item>{{ teste }}</b-nav-item>
       </b-nav>
     </div>
   </div>
@@ -12,9 +12,20 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { getModule } from 'vuex-module-decorators'
+import UIStore from '../store/UIStore'
+import GlobalStore from '../store/GlobalStore'
 
 @Component
 export default class RodapeComponent extends Vue {
+
+  uiStore = getModule(UIStore, this.$store)
+
+  get teste() {
+    return this.uiStore.teste
+  }
+
+  
 
 }
 </script>
