@@ -17,6 +17,7 @@ export default class HomePageStore extends VuexModule{
             return new Video(null)
         }
     }
+
     get videosEmDestaque(){
         return this._listaDeVideos.slice(1)
     }

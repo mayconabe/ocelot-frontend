@@ -23,6 +23,7 @@ import GlobalStore from '../store/GlobalStore'
 
 @Component
 export default class ProfilePhotoComponent extends Vue {
+
   globalStore = getModule(GlobalStore, this.$store)
 
   get url(){

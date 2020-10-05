@@ -2,7 +2,7 @@
       <iframe 
           width="560" 
           height="315" 
-          :src="video" 
+          :src="video.video_url" 
           frameborder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
@@ -11,9 +11,8 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import HomePageStore from '../store/HomePageStore';
-import { getModule } from 'vuex-module-decorators';
-
+import { getModule } from 'vuex-module-decorators'
+import HomePageStore from '../store/HomePageStore'
 
 @Component
 export default class VideoComponent extends Vue {

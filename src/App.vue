@@ -28,9 +28,10 @@ import { getModule } from 'vuex-module-decorators';
 export default class App extends Vue {
   globalStore = getModule(GlobalStore, this.$store)
   homePageStore = getModule(HomePageStore, this.$store)
-  mounted(){
+
+  mounted() {
     this.globalStore.initPerfil()
-    this.homePageStore.initVideo()
+    this.homePageStore.initVideos()
   }
 }
 </script>
@@ -46,11 +47,8 @@ export default class App extends Vue {
     width: 100%;
 
     .navitem-logo {
-      float: right;
-      // position: absolute;
-      // right: 0;
+      position: absolute;
+      right: 0;
     }
   }
-
-  
 </style>

@@ -19,9 +19,9 @@ export default class Perfil {
             'url': this.url
         }
     }
+  
     clone(perfilToClone:Perfil){   
         this.username = perfilToClone.username
         this.url = perfilToClone.url
     }
-
 }
