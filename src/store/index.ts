@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 import GlobalStore from './GlobalStore'
 import HomePageStore from './HomePageStore'
-import UiStore from './UiStore'
+import UIStore from './UIStore'
 import VideoPageStore from './VideoPageStore'
 
 Vue.use(Vuex)
@@ -12,7 +12,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({ 
     modules:{
       GlobalStore,
-      UiStore,
+      UIStore,
       VideoPageStore,
       HomePageStore
     }

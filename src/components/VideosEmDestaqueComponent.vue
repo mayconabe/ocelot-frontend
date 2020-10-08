@@ -1,27 +1,37 @@
 <template>
 
-  <div class="mais-assistidos">
-    <VueSlickCarousel v-bind="settings">
-      <div class="item" v-for="video in videos">
-        <VideoThumbnailComponent
-        :video="video"/>
-      </div>
-    </VueSlickCarousel>
+  <div class="videos-em-destaque">
+    <h4>{{ titulo }}</h4>
+
+    <span v-if="isVertical">
+      <div class="item" v-for="video in listaVideos">
+          <VideoThumbnailComponent
+          :video="video"/>
+        </div>
+    </span>
+
+    <span v-if="isHorizontal">
+      <VueSlickCarousel v-bind="settings">
+
+        <div class="item" v-for="video in listaVideos">
+          <VideoThumbnailComponent
+          :video="video"/>
+        </div>
+
+      </VueSlickCarousel>
+    </span>
+
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import HomePageStore from '../store/HomePageStore'
-import { getModule } from 'vuex-module-decorators'
-
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import ThumbnailComponent from '@/components/ThumbnailComponent.vue';
-
-import VueSlickCarousel from 'vue-slick-carousel'
+import VideoThumbnailComponent from '@/components/VideoThumbnailComponent.vue';
+import Video from '../models/Video'
 
 @Component({
   components:{
@@ -29,14 +39,19 @@ import VueSlickCarousel from 'vue-slick-carousel'
     VideoThumbnailComponent
   }
 })
-export default class MaisAssistidosComponent extends Vue {
+export default class VideosEmDestaqueComponent extends Vue {
+  @Prop() private titulo!: string
+  @Prop() private orientacao!: string
+  @Prop({type: Array, required: true}) private listaVideos!: Array<Video>
 
-  homePageStore = getModule(HomePageStore, this.$store)
-
-  get videos() {
-    console.log(this.homePageStore.videosEmDestaque)
-    return this.homePageStore.videosEmDestaque
+  get isVertical(){
+    return this.orientacao == "vertical"
   }
+
+  get isHorizontal(){
+    return this.orientacao == "horizontal"
+  }
+
 
   settings = {
     "dots": true,

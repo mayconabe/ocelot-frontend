@@ -1,21 +1,26 @@
+import { settings }  from '../settings'
 export default class Video {
-
+    id: number
     nome: string
-    video_url: string
-    video_thumbnail: string 
-    video_poster: string
-
+    descricao: string
+    external_url: string
+    thumbnail_url: string 
+    
     constructor(videoJson: any) {
+
         if (videoJson == null) {
+            this.id = 0
             this.nome = "Titulo"
-            this.video_url = ""
-            this.video_thumbnail = ""
-            this.video_poster = ""
+            this.descricao = "descricao"
+            this.external_url = ""
+            this.thumbnail_url = ""
+
         } else {
+            this.id = videoJson.id
             this.nome = videoJson.nome
-            this.video_url = videoJson.video_url
-            this.video_thumbnail = "http://localhost:8000"+ videoJson.thumbnail_url
-            this.video_poster = "http://localhost:8000" + videoJson.poster_url
+            this.descricao = videoJson.descricao
+            this.external_url = videoJson.external_url
+            this.thumbnail_url = settings.apiUrl+ videoJson.thumbnail_url
         }
     }
 }

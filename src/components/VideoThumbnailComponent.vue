@@ -1,6 +1,10 @@
 <template>
     <div class="video-thumbnail">
-      <a href=""><img :src="video.video_thumb" alt="thumbnail"></a>
+      <router-link :to="{name: 'VideoPage', params: {videoId: video.id }}">
+        <img :src="video.thumbnail_url" alt="thumbnail">
+        <p><b>{{ video.nome }} </b> {{ video.descricao }}</p>
+      </router-link>
+      
     </div>
 </template>
 
