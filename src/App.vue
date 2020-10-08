@@ -45,6 +45,7 @@ export default class App extends Vue {
     right: 0;
     text-align: center;
     width: 100%;
+    z-index: 999;
 
     .navitem-logo {
       position: absolute;

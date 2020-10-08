@@ -24,6 +24,8 @@ export default class VideoService {
         const response = await fetch(this.url)
         const data = await response.json()
 
+        console.log(data)
+
         for (let i=0; i<data.length; i++) {
             videos.push(new Video(data[i]))
         }
