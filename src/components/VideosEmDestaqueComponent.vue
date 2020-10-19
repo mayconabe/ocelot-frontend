@@ -1,5 +1,6 @@
 <template>
 
+
   <div class="mais-assistidos">
     <h3>{{ titulo }}</h3>
 
@@ -24,16 +25,19 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+
 import HomePageStore from '../store/HomePageStore'
 import { getModule } from 'vuex-module-decorators'
-
 import Video from '../models/Video'
+
 
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import VideoThumbnailComponent from '@/components/VideoThumbnailComponent.vue';
+
+
 
 @Component({
   components:{
@@ -54,6 +58,7 @@ export default class VideosEmDestaqueComponent extends Vue {
   get isHorizontal() {
     return this.orientacao == "horizontal"
   }
+
 
   settings = {
     "dots": true,
@@ -102,7 +107,6 @@ export default class VideosEmDestaqueComponent extends Vue {
 //   height: 200px;
 //   margin-left: 10px;
 // }
-
   h3 {
     padding: 10px;
   }

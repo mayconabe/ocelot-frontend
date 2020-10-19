@@ -11,7 +11,7 @@
                                        orientacao="vertical"/>
         </b-col>
     </b-row>
-  
+
 </template>
 
 <script lang="ts">
@@ -42,12 +42,13 @@ export default class VideoPage extends Vue {
         let videosFiltrados = this.homePageStore.getVideos.filter(v => this.videoId == v.id)
 
         if (videosFiltrados.length > 0) {
+
             return videosFiltrados[0]
         } else {
             return new Video(null)
         }
-    }
 
+    }
     get videosRelacionados() {
         return this.homePageStore.videosEmDestaque
     }

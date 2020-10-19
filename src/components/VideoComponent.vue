@@ -10,9 +10,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { getModule } from 'vuex-module-decorators'
-import HomePageStore from '../store/HomePageStore'
+import { Component, Prop, Vue } from 'vue-property-decorator';'
 import Video from '../models/Video'
 
 @Component

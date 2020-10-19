@@ -24,12 +24,16 @@ export default class HomePageStore extends VuexModule{
         } else {
             return new Video(null)
         }
+        
     }
 
-    get getVideos() {
-        return this._listaDeVideos
+    get getVideos(){
+        if (this._listaDeVideos.length > 0){
+            return this._listaDeVideos
+        } else {
+            return [new Video(null)]
+        }
     }
-
 
     //Mutation
     @Mutation
