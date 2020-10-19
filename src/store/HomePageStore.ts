@@ -19,18 +19,28 @@ export default class HomePageStore extends VuexModule{
     }
 
     get videosEmDestaque(){
-        return this._listaDeVideos.slice(1)
+        if (this._listaDeVideos.length > 0){
+            return this._listaDeVideos.slice(1)
+        } else {
+            return new Video(null)
+        }
     }
+
+    get getVideos() {
+        return this._listaDeVideos
+    }
+
+
     //Mutation
     @Mutation
-    _initVideo(videos: Array<Video>){
+    _initVideos(videos: Array<Video>){
         console.log('mutation')
         this._listaDeVideos = videos
     }
 
     //Action
-    @Action({commit: '_initVideo'})
-    initVideo() {
+    @Action({commit: '_initVideos'})
+    initVideos() {
         console.log('action')
         return VideoService.getVideosIndex()
     }

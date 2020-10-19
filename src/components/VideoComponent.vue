@@ -2,7 +2,7 @@
       <iframe 
           width="560" 
           height="315" 
-          :src="video.video_url" 
+          :src="video.external_url" 
           frameborder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
@@ -13,15 +13,13 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators'
 import HomePageStore from '../store/HomePageStore'
+import Video from '../models/Video'
 
 @Component
 export default class VideoComponent extends Vue {
-  homePageStore = getModule(HomePageStore, this.$store)
-  
-  get video(){
-    return this.homePageStore.videoPrincipal.video_url
-    
-  }
+
+  @Prop() private video!: Video
+
 }
 </script>
 

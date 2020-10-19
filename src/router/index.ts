@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import HomePage from '../views/HomePage.vue'
+import VideoPage from '../views/VideoPage.vue'
 
 Vue.use(VueRouter)
 
   const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'HomePage',
+    component: HomePage
+  },
+  {
+    path: '/video/:videoId',
+    props: true,
+    name: 'VideoPage',
+    component: VideoPage
   },
   {
     path: '/about',
