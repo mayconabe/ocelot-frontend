@@ -1,4 +1,4 @@
-import {VuexModule, Mutation, Action, Module} from 'vuex-module-decorators'
+import { VuexModule, Mutation, Action, Module } from 'vuex-module-decorators'
 
 @Module({name: 'UIStore', namespaced: true})
 export default class UIStore extends VuexModule{

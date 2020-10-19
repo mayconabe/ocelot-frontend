@@ -10,12 +10,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';'
 import Video from '../models/Video'
 
 @Component
 export default class VideoComponent extends Vue {
+
   @Prop() private video!: Video
+
 }
 </script>
 

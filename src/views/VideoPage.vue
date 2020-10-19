@@ -1,51 +1,61 @@
 <template>
-  <div class="video">
     <b-row no-gutters>
-        <b-col sm="12" md="9" >
-            <VideoComponent :video="video"/>
+        <b-col sm="12" md="9">
+            <div class="video">
+                <VideoComponent :video="video"/>
+            </div>
         </b-col>
-            
         <b-col sm="12" md="3">
-            <VideosEmDestaqueComponent :listaVideos="videoRelacionados"
-                                        :titulo="titulo"
-                                        orientacao="vertical"/>
+            <VideosEmDestaqueComponent :listaVideos="videosRelacionados"
+                                       :titulo="titulo"
+                                       orientacao="vertical"/>
         </b-col>
     </b-row>
-  </div>
+
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import VideoComponent from '@/components/VideoComponent.vue';
-import VideosEmDestaqueComponent from '@/components/VideosEmDestaqueComponent.vue';
-import HomePageStore from '../store/HomePageStore'
 import { getModule } from 'vuex-module-decorators'
+import VideoComponent from '@/components/VideoComponent.vue';
+import HomePageStore from '../store/HomePageStore'
+
 import Video from '../models/Video'
+
+import VideosEmDestaqueComponent from '@/components/VideosEmDestaqueComponent.vue';
+
 @Component({
   components: {
     VideoComponent,
-    VideosEmDestaqueComponent
+    VideosEmDestaqueComponent,
   },
 })
 export default class VideoPage extends Vue {
-    homePageStore = getModule(HomePageStore, this.$store)
 
     @Prop() private videoId!: number
 
-    titulo = "Videos Relacionados"
+    homePageStore = getModule(HomePageStore, this.$store)
+    titulo = "Vídeos Relacionados"
 
-    get video(){
+
+    get video() {
         let videosFiltrados = this.homePageStore.getVideos.filter(v => this.videoId == v.id)
-        if (videosFiltrados.length > 0){
+
+        if (videosFiltrados.length > 0) {
+
             return videosFiltrados[0]
         } else {
             return new Video(null)
         }
 
     }
-
-    get videoRelacionados(){
+    get videosRelacionados() {
         return this.homePageStore.videosEmDestaque
     }
+  
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

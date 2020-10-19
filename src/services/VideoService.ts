@@ -26,6 +26,8 @@ export default class VideoService {
         console.log('data')
         console.log(data)
 
+        console.log(data)
+
         for (let i=0; i<data.length; i++) {
             videos.push(new Video(data[i]))
         }

@@ -34,15 +34,16 @@ export default class HomePageStore extends VuexModule{
             return [new Video(null)]
         }
     }
+
     //Mutation
     @Mutation
-    _initVideo(videos: Array<Video>){
+    _initVideos(videos: Array<Video>){
         console.log('mutation')
         this._listaDeVideos = videos
     }
 
     //Action
-    @Action({commit: '_initVideo'})
+    @Action({commit: '_initVideos'})
     initVideos() {
         console.log('action')
         return VideoService.getVideosIndex()
